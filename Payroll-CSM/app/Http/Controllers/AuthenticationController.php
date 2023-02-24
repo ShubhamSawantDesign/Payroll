@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Admin;
-
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AuthenticationController extends Controller
 {
@@ -16,7 +16,8 @@ class AuthenticationController extends Controller
             $data = $request->all();
             
             if(Auth::guard('admin')->attempt(['admin'=>$data['admin'],'password'=>$data['password']])){
-                echo "Authentication Successful....!"; 
+                Alert::success('Success', 'Log-In Successful');
+                return redirect('/');
             } else {
                 echo "Authentication Unsuccessful....!";
             }
