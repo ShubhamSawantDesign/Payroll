@@ -14,7 +14,7 @@ use App\Http\Controllers\AuthenticationController;
 */
 
 Route::get('/', function () {
-    return view('admin_login');
+    return view('admin.admin_login');
 });
 
 Route::match(['get','post'], '/adminlogin', [AuthenticationController::class, 'login']);

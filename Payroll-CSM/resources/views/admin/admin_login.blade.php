@@ -1,9 +1,12 @@
+@extends('admin/admin_header')
+@section('content')
+@include('sweetalert::alert')
 
 <body class="hold-transition sidebar-mini layout-fixed">
 	<div class="hold-transition login-page">
 		<div class="login-box">
 			<div class="login-logo">
-				<b>Artaux</b> Admin Login
+				<b>Admin Login</b>
 			</div>
 		  	<div class="card">
 		    	<div class="card-body login-card-body">
@@ -41,3 +44,4 @@
 	  		</div>
 		</div>
 	</div>
+@endsection
