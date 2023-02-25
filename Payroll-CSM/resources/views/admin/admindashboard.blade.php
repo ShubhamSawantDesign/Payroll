@@ -125,6 +125,7 @@
         <th>Designation</th>
         <th>Update Employee Details</th>
         <th>Delete Employee</th>
+        <th>View Details</th>
       </tr>
     </thead>
     <tbody>
@@ -141,6 +142,7 @@
            <i class="fas fa-edit" style="font-size:28px;"></i>
         </a></td>
         <td><a href="#"><i class="fa fa-trash-o" style="font-size:28px;color:red"></i></a></td>
+        <td><a href="/viewProfile/{{ $data->emp_id }}">View Profile</a></td>
       </tr>
       
       @endforeach

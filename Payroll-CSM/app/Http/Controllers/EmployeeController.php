@@ -53,7 +53,13 @@ class EmployeeController extends Controller
         }
     }
 
-    
+
+    public function viewProfile(Request $request,$emp_id){
+        $employee_data = Employee::where('emp_id',$emp_id)->first();
+        $payroll_data = Payroll::where('emp_id',$emp_id)->get();
+        return view('admin.viewProfile')->with(compact('employee_data','payroll_data'));
+    }
+
 
 
 
