@@ -28,9 +28,17 @@ Auth::routes();
 
 /**Admin Panel After login*/
 Route::group(['middleware'=>'admin_auth'],function(){
-//This protect the section which require login
+//This protect the section which require login 
 Route::get('/dashboard', [EmployeeController::class, 'dashboard']); 
+Route::get('/viewPayroll', [EmployeeController::class, 'viewPayroll']); 
 Route::match(['get','post'], '/logout', [AuthenticationController::class, 'logout']); 
+
+
+
+// Employee Related Operation Routing
+Route::match(['get','post'], '/addEmployee', [EmployeeController::class, 'addEmployee']); 
+Route::match(['get','post'], '/createPaySlip', [EmployeeController::class, 'createPaySlip']); 
+
 
 
 });

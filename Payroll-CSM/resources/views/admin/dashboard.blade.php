@@ -3,6 +3,7 @@
 <title>Payroll Dashbaord</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="{{ url('css/popmodal.css') }}">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -18,12 +19,34 @@
   <button class="w3-bar-item w3-button w3-large"
   onclick="w3_close()">Close &times;</button>
   <a href="{{ url('/dashboard') }}" class="w3-bar-item w3-button">Employee Details</a>
-  <a href="{{ url('/viewPayroll') }}" class="w3-bar-item w3-button">Employee Payroll Details</a>
   <a href="{{ url('logout') }}" class="w3-bar-item w3-button">Logout</a>
 </div>
 
 @include('sweetalert::alert')
 @yield('content')
+
+<script>
+// Get the modal
+var modal = document.getElementById('modaladdEmp');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+
+// Get the modal
+var modal = document.getElementById('modaladdSlip');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
 
 <script>
 function w3_open() {
