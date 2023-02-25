@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthenticationController;
-
+use App\Http\Controllers\EmployeeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,11 +15,23 @@ use App\Http\Controllers\AuthenticationController;
 
 Route::get('/', function () {
     return view('admin.admin_login');
-});
+})->name('admin_login');
+Route::get('/login', function () {
+    return view('admin.admin_login');
+})->name('admin_login');
 
+
+/**All Function Route call */
 Route::match(['get','post'], '/adminlogin', [AuthenticationController::class, 'login']);
-
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+/**Admin Panel After login*/
+Route::group(['middleware'=>'admin_auth'],function(){
+//This protect the section which require login
+Route::get('/dashboard', [EmployeeController::class, 'dashboard']); 
+Route::match(['get','post'], '/logout', [AuthenticationController::class, 'logout']); 
+
+
+});
+
