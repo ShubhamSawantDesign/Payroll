@@ -31,8 +31,11 @@ Route::group(['middleware'=>'admin_auth'],function(){
 //This protect the section which require login 
 Route::get('/dashboard', [EmployeeController::class, 'dashboard']); 
 Route::get('/viewPayroll', [EmployeeController::class, 'viewPayroll']); 
-Route::match(['get','post'], '/logout', [AuthenticationController::class, 'logout']); 
+Route::get('/viewProfile/{emp_id}', [EmployeeController::class, 'viewProfile']);
 
+Route::get('/viewSalarySlip', function () {
+    return view('admin.viewSlip');
+});
 
 
 // Employee Related Operation Routing
